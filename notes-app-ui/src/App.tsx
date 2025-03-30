@@ -134,7 +134,7 @@ const App = () => {
           onChange={(event) =>
             setContent(event.target.value)
           }
-          placeholder="Content"
+          placeholder="content"
           rows={10}
         ></textarea>
 
