@@ -1,8 +1,16 @@
 import {useState} from 'react';
 import "./App.css"
 
+type Note = {
+  id: number;
+  title: string;
+  content: string;
+}
+
 const App = () => {
-  const [notes, setNotes] = useState([
+  const [notes, setNotes] = useState<
+  Note[]
+  >([
     {
       id: 1,
       title: "note title 1",
@@ -29,14 +37,47 @@ const App = () => {
       content: "content 5",
     }
   ]);
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleSubmit = (
+    event: React.FormEvent
+  ) => {
+    event.preventDefault();
+    console.log("title: ", title)
+    console.log("content: ", content)
+
+    const newNote: Note = {
+      id: notes.length + 1,
+      title: title,
+      content: content
+    };
+
+    setNotes([newNote, ...notes]);
+    setTitle("");
+    setContent("");
+  }
+
   return(
     <div className="app-container">
-      <form className="note-form">
+      <form 
+        className="note-form"
+        onSubmit={(event) => handleSubmit(event)}
+      >
         <input 
+          value={title}
+          onChange={(event)=>
+            setTitle(event.target.value)
+          }
           placeholder="title" 
           required
         ></input>
         <textarea
+          value={content}
+          onChange={(event) =>
+            setContent(event.target.value)
+          }
           placeholder="Content"
           rows={10}
         ></textarea>
