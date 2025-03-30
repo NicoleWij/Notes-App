@@ -69,7 +69,7 @@ input {
 
 .note-form button {
   border-radius: 5px;
-  background-color: rgb(202, 125, 254);
+  background-color: rgb(140, 202, 223);
   border: none;
   padding: 10px;
   font-size: 16px;
@@ -79,4 +79,19 @@ input {
 .note-form button:hover {
   background-color: rgb(106, 175, 198);
   cursor: pointer;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.edit-buttons button {
+  flex: 1;
+}
+
+.edit-buttons button:last-of-type {
+  background-color: rgb(220, 89, 89);
+  color: white;
 }
