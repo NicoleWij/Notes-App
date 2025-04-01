@@ -7,7 +7,6 @@ It's a practice project meant to reinforce concepts in fullstack web development
 ---
 
 ## Demo
-![App Demo](./demo.gif)
 
 ---
 
